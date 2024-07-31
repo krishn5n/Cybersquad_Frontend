@@ -1,0 +1,165 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f2f3f4;
+  margin: 0;
+}
+
+/* Homepage Styles */
+.homepage-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  
+  text-align: center;
+}
+
+.homepage-container h1 {
+  margin-bottom: 1.5rem;
+  color: #00447c;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.homepage-container p {
+  margin-bottom: 2rem;
+  color: #212121;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.homepage-container .cta-button {
+  padding: 0.75rem 2rem;
+  background-color: #0b7b9e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.homepage-container .cta-button:hover {
+  background-color: #00447c;
+  transform: scale(1.05);
+}
+
+/* Form Container Styles */
+.form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: #00447c;
+  font-size: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #212121;
+}
+
+.input-group input[type="text"],
+.input-group input[type="tel"],
+.input-group input[type="number"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Quiz Section Styles */
+.quiz-section {
+  margin-bottom: 2rem;
+}
+
+.quiz-section .input-group {
+  margin-bottom: 1.5rem;
+}
+
+.quiz-section .input-group label {
+  font-size: 1rem;
+  color: #212121;
+}
+
+.quiz-section .input-group input[type="radio"] {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.quiz-section .input-group input[type="radio"] + label {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.form-button,
+.quiz-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.form-button {
+  background-color: #00447c;
+}
+
+.form-button:hover {
+  background-color: #0b7b9e;
+}
+
+.quiz-button {
+  background-color: #0b7b9e;
+}
+
+.quiz-button:hover {
+  background-color: #00447c;
+}
+
+.form-link {
+  margin-top: 1.5rem;
+}
+
+.form-link a {
+  color: #0b7b9e;
+  text-decoration: none;
+}
+
+.form-link a:hover {
+  text-decoration: underline;
+}

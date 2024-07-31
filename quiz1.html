@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <div class="form-container">
+            <h2>Personal Finance Quiz</h2>
+            <form action="welcome.html" method="post">
+                <div class="quiz-section">
+                    <!-- Purpose of Budgeting -->
+                    <div class="input-group">
+                        <label for="q1">1. What is the primary purpose of creating a budget?</label>
+                        <input type="radio" id="q1a" name="q1" value="a" required>
+                        <label for="q1a">a) To spend more money</label><br>
+                        <input type="radio" id="q1b" name="q1" value="b">
+                        <label for="q1b">b) To track income and expenses</label><br>
+                        <input type="radio" id="q1c" name="q1" value="c">
+                        <label for="q1c">c) To impress others</label><br>
+                        <input type="radio" id="q1d" name="q1" value="d">
+                        <label for="q1d">d) To avoid paying taxes</label><br>
+                        <input type="radio" id="q1x" name="q1" value="x">
+                        <label for="q1x">I don't know</label>
+                    </div>
+
+                    <!-- Budget Components -->
+                    <div class="input-group">
+                        <label for="q2">2. Which of the following is a typical component of a personal budget?</label>
+                        <input type="radio" id="q2a" name="q2" value="a" required>
+                        <label for="q2a">a) Income</label><br>
+                        <input type="radio" id="q2b" name="q2" value="b">
+                        <label for="q2b">b) Expenses</label><br>
+                        <input type="radio" id="q2c" name="q2" value="c">
+                        <label for="q2c">c) Savings goals</label><br>
+                        <input type="radio" id="q2d" name="q2" value="d">
+                        <label for="q2d">d) All of the above</label><br>
+                        <input type="radio" id="q2x" name="q2" value="x">
+                        <label for="q2x">I don't know</label>
+                    </div>
+
+                    <!-- Tracking Expenses -->
+                    <div class="input-group">
+                        <label for="q3">3. Why is it important to track your expenses?</label>
+                        <input type="radio" id="q3a" name="q3" value="a" required>
+                        <label for="q3a">a) To identify spending habits</label><br>
+                        <input type="radio" id="q3b" name="q3" value="b">
+                        <label for="q3b">b) To increase your income</label><br>
+                        <input type="radio" id="q3c" name="q3" value="c">
+                        <label for="q3c">c) To decrease your savings</label><br>
+                        <input type="radio" id="q3d" name="q3" value="d">
+                        <label for="q3d">d) To reduce taxes</label><br>
+                        <input type="radio" id="q3x" name="q3" value="x">
+                        <label for="q3x">I don't know</label>
+                    </div>
+
+                    <!-- Adjusting the Budget -->
+                    <div class="input-group">
+                        <label for="q4">4. What should you do if your expenses exceed your income?</label>
+                        <input type="radio" id="q4a" name="q4" value="a" required>
+                        <label for="q4a">a) Increase your spending</label><br>
+                        <input type="radio" id="q4b" name="q4" value="b">
+                        <label for="q4b">b) Ignore the difference</label><br>
+                        <input type="radio" id="q4c" name="q4" value="c">
+                        <label for="q4c">c) Adjust your budget to reduce expenses</label><br>
+                        <input type="radio" id="q4d" name="q4" value="d">
+                        <label for="q4d">d) Borrow money to cover the gap</label><br>
+                        <input type="radio" id="q4x" name="q4" value="x">
+                        <label for="q4x">I don't know</label>
+                    </div>
+
+                    <!-- Emergency Fund -->
+                    <div class="input-group">
+                        <label for="q5">5. Why is having an emergency fund important?</label>
+                        <input type="radio" id="q5a" name="q5" value="a" required>
+                        <label for="q5a">a) To invest in high-risk stocks</label><br>
+                        <input type="radio" id="q5b" name="q5" value="b">
+                        <label for="q5b">b) To cover unexpected expenses</label><br>
+                        <input type="radio" id="q5c" name="q5" value="c">
+                        <label for="q5c">c) To lend money to friends</label><br>
+                        <input type="radio" id="q5d" name="q5" value="d">
+                        <label for="q5d">d) To buy luxury items</label><br>
+                        <input type="radio" id="q5x" name="q5" value="x">
+                        <label for="q5x">I don't know</label>
+                    </div>
+
+                    <!-- Savings Goals -->
+                    <div class="input-group">
+                        <label for="q6">6. What is a good strategy for setting savings goals?</label>
+                        <input type="radio" id="q6a" name="q6" value="a" required>
+                        <label for="q6a">a) Set vague goals without a timeline</label><br>
+                        <input type="radio" id="q6b" name="q6" value="b">
+                        <label for="q6b">b) Set specific, measurable, and time-bound goals</label><br>
+                        <input type="radio" id="q6c" name="q6" value="c">
+                        <label for="q6c">c) Save whatever is left at the end of the month</label><br>
+                        <input type="radio" id="q6d" name="q6" value="d">
+                        <label for="q6d">d) Spend first, save later</label><br>
+                        <input type="radio" id="q6x" name="q6" value="x">
+                        <label for="q6x">I don't know</label>
+                    </div>
+
+                    <!-- Example of Asset -->
+                    <div class="input-group">
+                        <label for="q7">7. Which of the following is an example of an asset?</label>
+                        <input type="radio" id="q7a" name="q7" value="a" required>
+                        <label for="q7a">a) Monthly rent payment</label><br>
+                        <input type="radio" id="q7b" name="q7" value="b">
+                        <label for="q7b">b) A savings account balance</label><br>
+                        <input type="radio" id="q7c" name="q7" value="c">
+                        <label for="q7c">c) Credit card debt</label><br>
+                        <input type="radio" id="q7d" name="q7" value="d">
+                        <label for="q7d">d) Monthly utility bills</label><br>
+                        <input type="radio" id="q7x" name="q7" value="x">
+                        <label for="q7x">I don't know</label>
+                    </div>
+
+                    <!-- Recommended Savings Percentage -->
+                    <div class="input-group">
+                        <label for="q8">8. What is the recommended percentage of your income to save each month?</label>
+                        <input type="radio" id="q8a" name="q8" value="a" required>
+                        <label for="q8a">a) 5%</label><br>
+                        <input type="radio" id="q8b" name="q8" value="b">
+                        <label for="q8b">b) 10%</label><br>
+                        <input type="radio" id="q8c" name="q8" value="c">
+                        <label for="q8c">c) 20%</label><br>
+                        <input type="radio" id="q8d" name="q8" value="d">
+                        <label for="q8d">d) 50%</label><br>
+                        <input type="radio" id="q8x" name="q8" value="x">
+                        <label for="q8x">I don't know</label>
+                    </div>
+
+                    <!-- Expense Management -->
+                    <div class="input-group">
+                        <label for="q9">9. What is one way to manage and reduce unnecessary expenses?</label>
+                        <input type="radio" id="q9a" name="q9" value="a" required>
+                        <label for="q9a">a) Avoid tracking your spending</label><br>
+                        <input type="radio" id="q9b" name="q9" value="b">
+                        <label for="q9b">b) Use a credit card for all purchases</label><br>
+                        <input type="radio" id="q9c" name="q9" value="c">
+                        <label for="q9c">c) Review and categorize your expenses regularly</label><br>
+                        <input type="radio" id="q9d" name="q9" value="d">
+                        <label for="q9d">d) Spend without a budget</label><br>
+                        <input type="radio" id="q9x" name="q9" value="x">
+                        <label for="q9x">I don't know</label>
+                    </div>
+
+                    <!-- Savings Goals Benefit -->
+                    <div class="input-group">
+                        <label for="q10">10. What is a benefit of setting savings goals?</label>
+                        <input type="radio" id="q10a" name="q10" value="a" required>
+                        <label for="q10a">a) To spend more money on non-essential items</label><br>
+                        <input type="radio" id="q10b" name="q10" value="b">
+                        <label for="q10b">b) To have a clear plan for future financial needs</label><br>
+                        <input type="radio" id="q10c" name="q10" value="c">
+                        <label for="q10c">c) To ignore financial planning</label><br>
+                        <input type="radio" id="q10d" name="q10" value="d">
+                        <label for="q10d">d) To rely on credit for all purchases</label><br>
+                        <input type="radio" id="q10x" name="q10" value="x">
+                        <label for="q10x">I don't know</label>
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="quiz-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

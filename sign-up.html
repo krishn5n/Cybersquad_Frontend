@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function redirectToQuiz() {
+            const usage = document.getElementById('usage').value;
+            const form = document.getElementById('sign-up-form');
+            if (usage === 'personal') {
+                form.action = 'quiz1.html';
+            } else if (usage === 'entrepreneur') {
+                form.action = 'quiz2.html';
+            }
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form id="sign-up-form" action="quiz.html" method="get">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email Id</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="Password">Password</label>
+                    <input type="password" id="Password" name="Password" required>
+                </div>
+                <div class="input-group">
+                    <label for="usage">Usage</label>
+                    <select id="usage" name="usage" required>
+                        <option value="personal">Personal</option>
+                        <option value="entrepreneur">Entrepreneur</option>
+                    </select>
+                </div>
+                <button type="button" class="quiz-button" onclick="redirectToQuiz()">We Want to Learn More About You!</button>
+            </form>
+            <p class="form-link">Already have an account? <a href="sign-in.html">Sign In</a></p>
+        </div>
+    </div>
+</body>
+</html>

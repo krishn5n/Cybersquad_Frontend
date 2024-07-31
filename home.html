@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono&display=swap">
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f3f4; /* Light Gray */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #212121; /* Dark Gray */
+            text-align: center;
+        }
+
+        .homepage-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .homepage-header {
+            font-size: 2.5rem;
+            color: #00447c; /* Dark Blue */
+            margin-bottom: 1rem;
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(45deg, #00447c, #0b7b9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textColorChange 3s infinite;
+        }
+
+        .homepage-description {
+            font-size: 1.2rem;
+            color: #0b7b9e; /* Medium Blue */
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .homepage-buttons {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #00447c; /* Dark Blue */
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #0b7b9e; /* Medium Blue */
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textColorChange {
+            0% { color: #00447c; }
+            50% { color: #0b7b9e; }
+            100% { color: #00447c; }
+        }
+    </style>
+</head>
+<body>
+    <div class="homepage-container">
+        <h1 class="homepage-header">Welcome to FinBuddy</h1>
+        <p class="homepage-description">Your Personal Financial Literacy Assistant</p>
+        <div class="homepage-buttons">
+            <a href="sign-in.html" class="cta-button">Sign In</a>
+            <a href="sign-up.html" class="cta-button">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>
