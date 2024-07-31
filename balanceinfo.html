@@ -4,10 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Balance Checker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+        /* Include the CSS styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f3f4; /* Light Gray */
+            color: #212121; /* Dark Gray */
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #00447c; /* Dark Blue */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        nav .nav-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        nav .title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1,
+        h2 {
+            color: #00447c; /* Dark Blue */
+            text-align: center;
+        }
+
+        button {
+            background-color: #0b7b9e; /* Medium Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #00447c; /* Dark Blue */
+        }
+
         .modal-overlays {
             position: fixed;
             top: 0;
@@ -21,8 +85,6 @@
             align-items: center;
         }
 
-
-
         .modal-contents {
             display: flex;
             background: white;
@@ -34,8 +96,8 @@
             height: 70%;
             overflow-y: auto;
             text-align: center;
-            display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .short-input {
@@ -44,6 +106,7 @@
 
         .Headline {
             margin-top: 10px;
+            color: #00447c; /* Dark Blue */
         }
 
         p {
@@ -59,13 +122,11 @@
         .close-button {
             border: none;
             background-color: white;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        .short-input {
-            display: inline-block;
-        }
-
-        .Eventdetails-cancel {
+        .popupinside {
             display: flex;
             justify-content: space-evenly;
             flex-direction: column;
@@ -73,7 +134,53 @@
             height: 70%;
         }
 
-        /* styles.css */
+        .loancontainer,
+        .spendcontainer {
+            display: none;
+        }
+
+        #balance-checker-popup {
+            background-color: #d4ebd0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #balance-check p,
+        .loan p {
+            color: #212121;
+        }
+
+        #addspend,
+        #addloans,
+        .addspending,
+        .addloanlist {
+            background-color: #0b7b9e;
+            color: #fff;
+        }
+
+        #addspend:hover,
+        #addloans:hover,
+        .addspending:hover,
+        .addloanlist:hover {
+            background-color: #00447c;
+        }
+
+        nav .auth-buttons {
+            display: flex;
+        }
+
+        nav .auth-buttons button {
+            margin: 0 5px;
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .body {
             display: flex;
             justify-content: center;
@@ -86,12 +193,13 @@
         .bar-chart {
             display: flex;
             align-items: flex-end;
-            width: 100%;
+            width: 80%;
             height: 400px;
             background-color: #fff;
             border: 1px solid #ccc;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
         }
 
         .labelxdiv {
@@ -105,7 +213,7 @@
             height: 200px;
             left: -150px;
             top: -200px;
-            background-color: antiquewhite;
+            background-color: #f5f5dc;
             z-index: 2;
             border-radius: 10px;
             text-align: center;
@@ -138,89 +246,80 @@
         .y-axis {
             left: 0;
             height: 100%;
-
         }
     </style>
 </head>
 
 <body>
-    <h1>
-        Balance Checker
-    </h1>
-    <div>
-        <h2>
-            Influx of Amount
-        </h2>
-        <div id="influx-balance">
-
+    <nav>
+        <div class="nav-content">
+            <a href="home.html">Home</a>
+            <a href="financetracker.html">Finance Tracker</a>
+            <a href="learning.html">Learning</a>
         </div>
-        <button class="btn btn-primary" id="addinflux">Click to Add an Earning</button>
-    </div>
+    </nav>
 
-    <div class="modal-overlays">
-        <div class="modal-contents">
-            <div class="heading-close">
-                <div class="Headline">
-                    <h2 class="heading-spending">
-                        Add an Earnings
-                    </h2>
-                </div>
-                <button class="close-button">X</button>
-            </div>
-            <div class="Eventdetails-cancel">
-                <div>
-                    <label>Name of the Expense:</label>
-                    <input id="earningname" type="text" required placeholder="Dine-Out">
-                </div>
-                <div>
-                    <label>Amount Used:</label>
-                    <input id="amount-earning" type="number" required placeholder="2000">
-                </div>
-                <button class="addearning btn btn-primary">Add Earning</button>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <h2>
-            Spending
-        </h2>
+    <div class="container">
+        <h1 style="font-weight: bolder;">Balance Checker</h1><hr color="black">
         <div>
-            <div id="latestspend">
-
-            </div>
-            <button class="btn btn-primary">Click for more information</button>
+            <h2>Influx of Amount</h2>
+            <div id="influx-balance"></div>
+            <button class="btn btn-primary" id="addinflux">Click to Add an Earning</button>
         </div>
-    </div>
-    <div class="body">
-        <div class="chart-wrap vertical">
-            <h2 class="title">Chart of Earning Last 4 Month</h2>
-            <div class="bar-chart">
-                <div class="bar" style="height: 80%;">
-                    <div class="popup_bar">
 
+        <div class="modal-overlays">
+            <div class="modal-contents">
+                <div class="heading-close">
+                    <div class="Headline">
+                        <h2 class="heading-spending">Add an Earnings</h2>
                     </div>
+                    <button class="close-button">X</button>
                 </div>
-                <div class="bar" style="height: 60%;">
-                    <div class="popup_bar">
-
+                <div class="Eventdetails-cancel">
+                    <div>
+                        <label>Name of the Expense:</label>
+                        <input id="earningname" type="text" required placeholder="Dine-Out">
                     </div>
-                </div>
-                <div class="bar" style="height: 40%;">
-                    <div class="popup_bar">
-
+                    <div>
+                        <label>Amount Used:</label>
+                        <input id="amount-earning" type="number" required placeholder="2000">
                     </div>
-                </div>
-                <div class="bar" style="height: 20%;">
-                    <div class="popup_bar">
-
-                    </div>
+                    <button class="addearning btn btn-primary">Add Earning</button>
                 </div>
             </div>
-
         </div>
+<br><hr color="black">
+        <div>
+            <h2>Spending</h2>
+            <div>
+                <div id="latestspend"></div>
+                <button class="btn btn-primary">Click for more information</button>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="chart-wrap vertical">
+                <h2 class="title">Chart of Earning Last 4 Months</h2>
+                <div class="bar-chart">
+                    <div class="bar" style="height: 80%;">
+                        <div class="popup_bar"></div>
+                    </div>
+                    <div class="bar" style="height: 60%;">
+                        <div class="popup_bar"></div>
+                    </div>
+                    <div class="bar" style="height: 40%;">
+                        <div class="popup_bar"></div>
+                    </div>
+                    <div class="bar" style="height: 20%;">
+                        <div class="popup_bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="window.location.href = 'home.html';">Go Back</button>
     </div>
-    <button class="btn btn-primary" onclick="window.location.href = 'index.html';">Go Back</button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
