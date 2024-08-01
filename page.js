@@ -49,7 +49,7 @@ amtval.addEventListener('input', () => {
 addamtsave.addEventListener('click', async () => {
     let amtsavecontainer = document.querySelector('.amtsavecontainer')
     amtsavecontainer.style.display = 'none'
-    let url = 'http://localhost:5000/addamtsave'
+    let url = 'https://cybersquad-backend.onrender.com/addamtsave'
     data = { 'amtsave': amtval.value, 'email': email }
     try {
         response = await fetch(url, {
@@ -89,8 +89,8 @@ closebutton.addEventListener('click', () => {
 addspending.addEventListener('click', async () => {
     let modelo = document.querySelector('.spendcontainer')
     modelo.style.display = 'none'
-    let url = 'http://localhost:5000/addspend'
-    let url1 = 'http://localhost:5000/addfixed'
+    let url = 'https://cybersquad-backend.onrender.com/addspend'
+    let url1 = 'https://cybersquad-backend.onrender.com/addfixed'
     let expensename = document.getElementById('expensename')
     let amount = document.getElementById('amount-expense')
     let expensetype = document.getElementById('expensetype')
@@ -146,7 +146,7 @@ popup_loan.addEventListener('click', async () => {
     let loantime = document.getElementById('loantime').value
 
     let data = { 'email': email, 'loanname': loanname, 'loanamt': loanamt, 'loanint': loanint, 'loantime': loantime }
-    let url = 'http://localhost:5000/addloan'
+    let url = 'https://cybersquad-backend.onrender.com/addloan'
 
     try {
         let response = await fetch(url, {
@@ -174,7 +174,7 @@ addloans.addEventListener('click', () => {
 })
 
 async function balanceinfochange() {
-    let url = 'http://localhost:5000/balanceinfo'
+    let url = 'https://cybersquad-backend.onrender.com/balanceinfo'
     data = { 'email': email }
     try {
         let response = await fetch(url, {
@@ -200,7 +200,7 @@ async function balanceinfochange() {
 }
 
 async function loanlist() {
-    let url = 'http://localhost:5000/loanlist'
+    let url = 'https://cybersquad-backend.onrender.com/loanlist'
     let bodyhtml = document.querySelector('body')
     data = { 'email': email }
     keys = ['Loan Name', 'Loan Amount', 'Loan Interest', 'Loan Time']

@@ -15,7 +15,7 @@ submit.addEventListener('click', async (event) => {
     emailval = email.value
     passval = pass.value
     data = { 'email': emailval, 'pass': passval }
-    let url = 'http://localhost:5000/signin'
+    let url = 'https://cybersquad-backend.onrender.com/signin'
     try {
         let response = await fetch(url, {
             method: 'POST',

@@ -16,7 +16,7 @@ closebutton.addEventListener('click', () => {
 })
 
 addearning.addEventListener('click', async () => {
-    let url = 'http://localhost:5000/addinflux'
+    let url = 'https://cybersquad-backend.onrender.com/addinflux'
     try {
         let earningname = document.getElementById('earningname').value
         let earningamt = document.getElementById('amount-earning').value
@@ -43,7 +43,7 @@ addearning.addEventListener('click', async () => {
 })
 
 async function influxload() {
-    let url = 'http://localhost:5000/influxlist'
+    let url = 'https://cybersquad-backend.onrender.com/influxlist'
     try {
         let response = await fetch(url)
         if (response.status != 200) {
@@ -65,7 +65,7 @@ async function influxload() {
 
 
 async function latestspends() {
-    let url = 'http://localhost:5000/latestspend'
+    let url = 'https://cybersquad-backend.onrender.com/latestspend'
     let dict = { 'email': email }
     let response = await fetch(url, {
         method: 'POST',
@@ -98,7 +98,7 @@ async function latestspends() {
 async function bargraph() {
     try {
         monthdict = { 1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December' }
-        let url = 'http://localhost:5000/bargraph'
+        let url = 'https://cybersquad-backend.onrender.com/bargraph'
         let dict = { 'email': email }
         let response = await fetch(url, {
             method: 'POST',
