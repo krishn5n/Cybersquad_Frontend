@@ -11,14 +11,17 @@
         /* Include the CSS styles here */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f2f3f4; /* Light Gray */
-            color: #212121; /* Dark Gray */
+            background-color: #f2f3f4;
+            /* Light Gray */
+            color: #212121;
+            /* Dark Gray */
             margin: 0;
             padding: 0;
         }
 
         nav {
-            background-color: #00447c; /* Dark Blue */
+            background-color: #00447c;
+            /* Dark Blue */
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -53,12 +56,14 @@
 
         h1,
         h2 {
-            color: #00447c; /* Dark Blue */
+            color: #00447c;
+            /* Dark Blue */
             text-align: center;
         }
 
         button {
-            background-color: #0b7b9e; /* Medium Blue */
+            background-color: #0b7b9e;
+            /* Medium Blue */
             color: white;
             border: none;
             border-radius: 5px;
@@ -69,7 +74,8 @@
         }
 
         button:hover {
-            background-color: #00447c; /* Dark Blue */
+            background-color: #00447c;
+            /* Dark Blue */
         }
 
         .modal-overlays {
@@ -106,7 +112,8 @@
 
         .Headline {
             margin-top: 10px;
-            color: #00447c; /* Dark Blue */
+            color: #00447c;
+            /* Dark Blue */
         }
 
         p {
@@ -122,6 +129,7 @@
         .close-button {
             border: none;
             background-color: white;
+            color: black;
             font-size: 16px;
             cursor: pointer;
         }
@@ -247,6 +255,17 @@
             left: 0;
             height: 100%;
         }
+
+        .spendbtn {
+            margin-top: 10px;
+        }
+
+        .spenddiv {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 
@@ -260,7 +279,9 @@
     </nav>
 
     <div class="container">
-        <h1 style="font-weight: bolder;">Balance Checker</h1><hr color="black">
+        <h1 style="font-weight: bolder;">Balance Checker</h1>
+        <hr color="black">
+
         <div>
             <h2>Influx of Amount</h2>
             <div id="influx-balance"></div>
@@ -288,12 +309,12 @@
                 </div>
             </div>
         </div>
-<br><hr color="black">
+        <br>
+        <hr color="black">
         <div>
             <h2>Spending</h2>
-            <div>
+            <div class="spenddiv">
                 <div id="latestspend"></div>
-                <button class="btn btn-primary">Click for more information</button>
             </div>
         </div>
 

@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinBuddy - Sign Up</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function redirectToQuiz() {
-            const usage = document.getElementById('usage').value;
-            const form = document.getElementById('sign-up-form');
-            if (usage === 'personal') {
-                form.action = 'quiz1.html';
-            } else if (usage === 'entrepreneur') {
-                form.action = 'quiz2.html';
-            }
-            form.submit();
+    <style>
+        .warnemail {
+            display: none;
+            color: red;
         }
-    </script>
+
+        .warnpass {
+            display: none;
+            color: red;
+        }
+
+        .container {
+            width: 50%;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="form-container">
@@ -38,10 +43,17 @@
                 <div class="input-group">
                     <label for="email">Email Id</label>
                     <input type="email" id="email" name="email" required>
+                    <p class="warnemail">
+                        Please enter a valid email
+                    </p>
                 </div>
                 <div class="input-group">
                     <label for="Password">Password</label>
                     <input type="password" id="Password" name="Password" required>
+                    <p class="warnpass">
+                        Please enter a valid Password with atleast 1 Uppercase, Lowercase, Special Character and a
+                        number
+                    </p>
                 </div>
                 <div class="input-group">
                     <label for="usage">Usage</label>
@@ -50,10 +62,14 @@
                         <option value="entrepreneur">Entrepreneur</option>
                     </select>
                 </div>
-                <button type="button" class="quiz-button" onclick="redirectToQuiz()">We Want to Learn More About You!</button>
+                <button type="button" class="quiz-button">We Want to Learn More About
+                    You!</button>
             </form>
             <p class="form-link">Already have an account? <a href="sign-in.html">Sign In</a></p>
         </div>
     </div>
+
+    <script src="./signup.js" defer></script>
 </body>
+
 </html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Learning Resources</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #f0f4f8, #e9eff2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .learning-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(-30px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0056b3;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #0056b3;
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #343a40;
+            font-size: 1.6em;
+            margin-top: 20px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #007bff;
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+
+        a::after {
+            content: 'Download';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 1em;
+            z-index: 1;
+        }
+
+        a:hover::before {
+            left: 0;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .learning-container {
+                padding: 15px;
+                width: 100%;
+                transform: none;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            a {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="learning-container">
+        <h2>Download Your Learning Resources</h2>
+        <div id="learning-content">
+            <h3>Savings</h3>
+            <a href="https://drive.google.com/uc?export=download&id=128sZRlOQzlrqooiwNLUWjjRGNBQQUA0k"
+                target="_blank">Importance of Saving</a>
+            <a href="https://drive.google.com/uc?export=download&id=12_0OBPCKA_LYk3UAsugQQdvmH9mRoScI"
+                target="_blank">Building an Emergency Fund</a>
+            <a href="https://drive.google.com/uc?export=download&id=1Y_uYHEpO7KOjZ_zSp-uMm2XoAZh5_6DG"
+                target="_blank">Short-term vs Long-term Savings</a>
+            <a href="https://drive.google.com/uc?export=download&id=1Zh47qnZBeA2n4o4UOvHhrpWJZRx042fG"
+                target="_blank">Additional Savings Resource</a>
+
+            <h3>Budgeting</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1seh5LcN8aF2L3kJS6jJSBtd02LYL1vCB"
+                target="_blank">Understanding Income and Expenses</a>
+
+            <a href="https://drive.google.com/uc?export=download&id=1xDUh5Sa9JHFvWD6_pbK63TtgKQiQNWW8"
+                target="_blank">Creating and Maintaining a Budget</a>
+
+            <h3>Investing</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1Nafnfd0inL3UEKYb04UsDOscbXSPidUy"
+                target="_blank">Basics of Investing</a>
+            <a href="https://drive.google.com/uc?export=download&id=" target="_blank">Types of Investments</a>
+            <a href="https://drive.google.com/uc?export=download&id=1seh5LcN8aF2L3kJS6jJSBtd02LYL1vCB"
+                target="_blank">Risk and return</a>
+            <a href="https://drive.google.com/uc?export=download&id=1LQQFCIVcoLRMmePqbNhtn34nNv0y71xC"
+                target="_blank">Diversification</a>
+
+            <h3>Debt Management</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1seh5LcN8aF2L3kJS6jJSBtd02LYL1vCB"
+                target="_blank">Types of Debt</a>
+            <a href="https://drive.google.com/uc?export=download&id=1CcWJ9GEjM-804lQXSNvtAyoS7EWYufa-"
+                target="_blank">Strategies for paying off debt</a>
+
+            <h3>Retirement</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1W3xh2EnYDByaq8UbOOmzCQWIVh5aJVEj"
+                target="_blank">Retirement planning</a>
+            <a href="https://drive.google.com/uc?export=download&id=https://drive.google.com/file/d/1h2zjOfuBlMDcIGlPqy-7457SnrlijiVE/view?usp=sharing"
+                target="_blank">Retirement accounts</a>
+
+            <h3>Financial Security</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1W3xh2EnYDByaq8UbOOmzCQWIVh5aJVEj"
+                target="_blank">Identifying scams</a>
+            <a href="https://drive.google.com/uc?export=download&id=https://drive.google.com/file/d/1h2zjOfuBlMDcIGlPqy-7457SnrlijiVE/view?usp=sharing"
+                target="_blank">Protecting Information</a>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

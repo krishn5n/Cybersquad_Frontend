@@ -9,8 +9,72 @@ let listloan = document.querySelector('.list-loans')
 let addloans = document.getElementById('addloans')
 let popup_loan = document.querySelector('.addloanlist')
 let closebuttonloan = document.querySelector('.close-button-loan')
+let minibut = document.querySelector('.minibut')
+let amtcls = document.querySelector('.close-amtsave-button')
+let addamtsave = document.querySelector('.addamtsave')
+let amtval = document.getElementById('amtsave-amt')
+let signout = document.querySelector('.signout')
+let signoutbut = document.querySelector('.signoutbut')
+let amtearn = 0
 
-let email = 'krishnannarayanan05@gmail.com'
+let email = localStorage.getItem('email')
+
+let closesignout = document.querySelector('.close-signout-button')
+closesignout.addEventListener('click', () => {
+    let signoutdiv = document.querySelector('signoutdiv')
+    signoutdiv.style.display = 'none'
+})
+
+signout.addEventListener('click', () => {
+    let signoutdiv = document.querySelector('.signoutdiv')
+    signoutdiv.style.display = 'flex'
+})
+
+signoutbut.addEventListener('click', () => {
+    localStorage.removeItem('email')
+    window.location.href = 'sign-in.html';
+})
+
+
+amtcls.addEventListener('click', () => {
+    let amtsavecontainer = document.querySelector('.amtsavecontainer')
+    amtsavecontainer.style.display = 'none'
+})
+
+amtval.addEventListener('input', () => {
+    let popupsaving = document.querySelector('.popup-saving')
+    popupsaving.style.display = 'none'
+})
+
+addamtsave.addEventListener('click', async () => {
+    let amtsavecontainer = document.querySelector('.amtsavecontainer')
+    amtsavecontainer.style.display = 'none'
+    let url = 'http://localhost:5000/addamtsave'
+    data = { 'amtsave': amtval.value, 'email': email }
+    try {
+        response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        amountsavep.textContent = amtval.value
+    }
+    catch (err) {
+        console.log(err)
+    }
+})
+
+minibut.addEventListener('click', () => {
+    let amtsavecontainer = document.querySelector('.amtsavecontainer')
+    amtsavecontainer.style.display = 'flex'
+})
+
+
 
 addspend.addEventListener('click', () => {
     let modelo = document.querySelector('.spendcontainer')
@@ -81,7 +145,7 @@ popup_loan.addEventListener('click', async () => {
     let loanint = document.getElementById('loanint').value
     let loantime = document.getElementById('loantime').value
 
-    let email = { 'email': email, 'loanname': loanname, 'loanamt': loanamt, 'loanint': loanint, 'loantime': loantime }
+    let data = { 'email': email, 'loanname': loanname, 'loanamt': loanamt, 'loanint': loanint, 'loantime': loantime }
     let url = 'http://localhost:5000/addloan'
 
     try {
@@ -90,7 +154,7 @@ popup_loan.addEventListener('click', async () => {
             headers: {
                 'Content-type': 'application/json'
             },
-            body: json.stringify(data)
+            body: JSON.stringify(data)
         })
 
         if (!response.ok) {
@@ -125,6 +189,7 @@ async function balanceinfochange() {
         }
 
         let returned = await response.json()
+        amtearn = returned.amountleft + returned.amountspent
         amountleftp.textContent = returned.amountleft
         amountspentp.textContent = returned.amountspent
         amountsavep.textContent = returned.amountsave
@@ -210,7 +275,6 @@ async function loanlist() {
                 }
                 div.appendChild(but)
                 listloan.appendChild(div)
-
             }
         }
     }
@@ -221,6 +285,10 @@ async function loanlist() {
 
 
 window.onload = async function () {
+    console.log(localStorage.getItem('email'))
+    if (!localStorage.getItem('email')) {
+        window.location.href = 'sign-in.html';
+    }
     balanceinfochange()
     loanlist()
 }

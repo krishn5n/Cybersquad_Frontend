@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Homepage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #0b7b9e, #00447c);
+            color: #f2f3f4;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cool-button {
+            background-color: #dddace;
+            color: #212121;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .cool-button:hover {
+            background-color: #f2f3f4;
+            color: #00447c;
+            transform: scale(1.1);
+        }
+
+        .cool-button:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to FinBuddy</h1>
+        <p>Your journey to financial literacy starts here.</p>
+        <div class="button-container">
+            <button class="cool-button" onclick="navigateTo('home.html')">Finance Tracker</button>
+            <button class="cool-button" onclick="navigateTo('learning.html')">Personalized Learning</button>
+            <button class="cool-button" id="chatbot-button">AI ChatBot</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        document.getElementById('chatbot-button').addEventListener('click', function () {
+            // Inject the chatbot script when the button is clicked
+            const botpressScript = document.createElement('script');
+            botpressScript.src = 'https://cdn.botpress.cloud/webchat/v1/inject.js';
+            document.body.appendChild(botpressScript);
+
+            const botpressConfigScript = document.createElement('script');
+            botpressConfigScript.src = 'https://mediafiles.botpress.cloud/0d5e86a3-c503-4771-82d0-96917a2e083b/webchat/config.js';
+            botpressConfigScript.defer = true;
+            document.body.appendChild(botpressConfigScript);
+        });
+    </script>
+</body>
+
+</html>

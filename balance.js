@@ -3,7 +3,7 @@ let addinflux = document.getElementById('addinflux')
 let closebutton = document.querySelector('.close-button')
 let modaloverlay = document.querySelector('.modal-overlays')
 let addearning = document.querySelector('.addearning')
-let email = 'krishnannarayanan05@gmail.com'
+let email = localStorage.getItem('email')
 let latestspend = document.getElementById('latestspend')
 let bodyhtml = document.querySelector('body')
 
@@ -52,8 +52,10 @@ async function influxload() {
         data = await response.json()
         let values = data.Values
         influxtxt.innerHTML = ''
+        console.log(values)
+        influxtxt.style.textAlign = 'center'
         for (let i of values) {
-            influxtxt.innerHTML += `${i[0]} - ${i[1]}<br>`
+            influxtxt.innerHTML += `${i[0].trimEnd()} - ${i[1]}<br>`
         }
     }
     catch (err) {
@@ -75,6 +77,9 @@ async function latestspends() {
     let data = await response.json()
     let spending = data.spendlist
     latestspend.innerHTML = ''
+    latestspend.style.textAlign = 'center'
+    latestspend.style.justifyContent = 'center'
+    latestspend.style.alignItems = 'center'
     for (let i of spending) {
         time = i[3].split(' ')
         time.pop()
@@ -106,56 +111,70 @@ async function bargraph() {
             throw new Error('Network response was not ok');
         }
         let data = await response.json()
-        values = [data['recurring'], data['recurring'], data['recurring'], data['recurring']]
-        months = data['months']
-        tempvalue = [data['recurring'], data['recurring'], data['recurring'], data['recurring']]
-        allvalues = [tempvalue, data.unexpected, data.variable, data.casual]
-        for (let i = 0; i <= 3; i++) {
-            values[i] = values[i] + data.unexpected[i] + data.variable[i] + data.casual[i]
-        }
-        let sum = 0
-        for (let i of values) {
-            sum += i
-        }
-        sum = Math.ceil(sum / 4)
-        heightofbar = [0, 0, 0, 0]
-        for (let i = 0; i <= 3; i++) {
-            heightofbar[i] = Math.floor((values[i] / sum) * 50)
-        }
-
-        const bars = document.querySelectorAll('.bar');
-        const popups = document.querySelectorAll('.popup_bar')
-
-
-        let color = ['black', 'brown', 'burlywood', 'seagreen']
-
-        popups.forEach((popup, index) => {
-            popup.innerHTML = `<h5>${monthdict[months[index]]}</h5><br>Total :- ${values[index]}<br>Recurring :- ${allvalues[0][index]} <br> Unexpected :- ${allvalues[1][index]} <br> Variable :- ${allvalues[2][index]} <br> Casual :- ${allvalues[3][index]}`
-        })
-
-        bars.forEach((bar, index) => {
-            bar.style.height = `${heightofbar[index]}%`;
-            let textdiv = document.createElement('div')
-            textdiv.className = 'labelxdiv'
-            textdiv.textContent = `${monthdict[months[index]]}`
-            for (let i = 0; i < 4; i++) {
-                let subbar = document.createElement('div')
-                subbar.className = 'subbar'
-                subbar.className = 'bar'
-                subbar.style.height = `${Math.floor((allvalues[i][index] / values[index]) * 100)}%`
-                subbar.style.backgroundColor = color[i]
-                bar.appendChild(subbar)
+        console.log(data)
+        if ((data['variable'].length != 0) || (data['unexpected'].length != 0) || (data['casual'].length != 0) || data['recurring'] != 0) {
+            values = [data['recurring'], data['recurring'], data['recurring'], data['recurring']]
+            months = data['months']
+            tempvalue = [data['recurring'], data['recurring'], data['recurring'], data['recurring']]
+            allvalues = [tempvalue, data.unexpected, data.variable, data.casual]
+            for (let i = 0; i <= 3; i++) {
+                values[i] = values[i] + ((i < data['unexpected'].length) ? data.unexpected[i] : 0) + ((i < data['variable'].length) ? data.variable[i] : 0) + ((i < data['casual'].length) ? data.casual[i] : 0)
             }
-            bar.addEventListener('mouseover', () => {
-                popups[index].style.display = 'block'
+            let sum = 0
+            for (let i of values) {
+                sum += i
+            }
+
+            console.log(allvalues)
+
+            sum = Math.ceil(sum / 4)
+            heightofbar = [0, 0, 0, 0]
+            for (let i = 0; i <= 3; i++) {
+                heightofbar[i] = Math.floor((values[i] / sum) * 50)
+            }
+
+            console.log()
+            const bars = document.querySelectorAll('.bar');
+            const popups = document.querySelectorAll('.popup_bar')
+
+
+            let color = ['coral', 'brown', 'burlywood', 'seagreen']
+
+            popups.forEach((popup, index) => {
+                popup.innerHTML = `<h5>${monthdict[months[index]]}</h5><br>Total :- ${values[index]}<br>Recurring :- ${((index < allvalues[0].length) ? allvalues[0][index] : 0)} <br> Unexpected :- ${((index < allvalues[1].length) ? allvalues[1][index] : 0)} <br> Variable :- ${((index < allvalues[2].length) ? allvalues[2][index] : 0)} <br> Casual :- ${((index < allvalues[3].length) ? allvalues[3][index] : 0)}`
             })
 
-            bar.addEventListener('mouseout', () => {
-                popups[index].style.display = 'none'
-            })
+            bars.forEach((bar, index) => {
+                bar.style.height = `${heightofbar[index]}%`;
+                let textdiv = document.createElement('div')
+                textdiv.className = 'labelxdiv'
+                textdiv.textContent = `${monthdict[months[index]]}`
+                for (let i = 0; i < 4; i++) {
+                    let subbar = document.createElement('div')
+                    subbar.className = 'subbar'
+                    subbar.className = 'bar'
+                    subbar.style.height = `${Math.floor((allvalues[i][index] / values[index]) * 100)}%`
+                    subbar.style.backgroundColor = color[i]
+                    bar.appendChild(subbar)
+                }
+                bar.addEventListener('mouseover', () => {
+                    popups[index].style.display = 'block'
+                })
 
-            bar.appendChild(textdiv)
-        });
+                bar.addEventListener('mouseout', () => {
+                    popups[index].style.display = 'none'
+                })
+
+                bar.appendChild(textdiv)
+            });
+        }
+        else {
+            let barchart = document.querySelector('.bar-chart')
+            barchart.innerHTML = "<h4>No payment made till this day</h4>"
+            barchart.style.justifyContent = 'center';
+            barchart.style.alignItems = 'center';
+            barchart.style.textAlign = 'center';
+        }
     }
     catch (err) {
         console.log(err)
@@ -163,6 +182,9 @@ async function bargraph() {
 }
 
 window.onload = async function () {
+    if (!localStorage.getItem('email')) {
+        window.location.href = 'sign-in.html';
+    }
     influxload()
     latestspends()
     bargraph()
