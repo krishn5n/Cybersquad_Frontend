@@ -14,7 +14,7 @@ but.addEventListener('click', async (event) => {
     let emailtest = /^[A-Za-z0-9]+@(gmail|yahoo)\.(com|in|us)$/
     if (passwdcheck.test(pass) && emailtest.test(email)) {
         localStorage.setItem('email', email)
-        let url = 'http://localhost:5000/signup'
+        let url = 'http://127.0.0.1:5000/signup'
         try {
             let response = await fetch(url, {
                 method: 'POST',
